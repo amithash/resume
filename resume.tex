@@ -1,0 +1,88 @@
+% resume.tex
+%
+% (c) 2002 Matthew Boedicker <mboedick@mboedick.org> (original author) http://mboedick.org
+% (c) 2003 David J. Grant <dgrant@ieee.org> http://www.davidgrant.ca
+% (c) 2007 Todd C. Miller <Todd.Miller@courtesan.com> http://www.courtesan.com/todd
+% (c) 2010 Amithash Prasad <amithash@gmail.com>
+%
+%This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/1.0/ or send a letter to Creative Commons, 559 Nathan Abbott Way, Stanford, California 94305, USA.
+
+\documentclass[letterpaper,8pt]{article}
+
+%-----------------------------------------------------------
+\usepackage[empty]{fullpage}
+\usepackage{color}
+\definecolor{mygrey}{gray}{0.80}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Adjust margins to 0.5in on all sides
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\topmargin}{-0.5in}
+\addtolength{\textheight}{1.0in}
+
+%-----------------------------------------------------------
+%Custom commands
+%\newcommand{\resitem}[1]{\item #1 \vspace{-2pt}}
+\newcommand{\resitem}[1]{\item #1 \vspace{-2pt}}
+\newcommand{\resheading}[1]{{\large \colorbox{mygrey}{\begin{minipage}{\textwidth}{\textbf{#1 \vphantom{p\^{E}}}}\end{minipage}}}}
+\newcommand{\ressubheading}[4]{
+\begin{tabular*}{7.0in}{l@{\extracolsep{\fill}}r}
+		\textbf{#1} & #2 \\
+		\textit{#3} & \textit{#4} \\
+\end{tabular*}\vspace{-6pt}}
+%-----------------------------------------------------------
+
+\begin{document}
+
+%START ASCII
+
+\begin{tabular*}{7.5in}{l@{\extracolsep{\fill}}r} %ASCII IGNORE
+\textbf{\huge Amithash Prasad}  & Phone: (720)878-1950\\ %ASCII IGNORE
+2600 S. Rock Creek Pkwy \#28-204 &  Email: amithash@gmail.com\\ %ASCII IGNORE
+Superior, CO 80027 & \\ %ASCII IGNORE
+%ASCII BLOCK BEGIN
+%Amithash Prasad
+%2600 S. Rock Creek Pkwy #28-204 Superior, CO 80027
+%Phone: (720)878-1950
+%ASCII BLOCK END 
+\end{tabular*} %ASCII IGNORE
+\\
+\rule{\linewidth}{0.5mm}
+
+\vspace{0.1in} %ASCII IGNORE 
+
+%\resheading{Objective}
+%\\
+%\vspace{0.1in} %ASCII IGNORE
+%\input{objective}
+%\\
+%\vspace{0.1in} %ASCII IGNORE
+
+\resheading{Education}
+\input{education}
+
+
+\resheading{Work Experience}
+\input{experience}
+
+
+\resheading{Skills/Tools}
+\input{skills}
+
+\pagebreak 
+\resheading{Research Projects}
+\input{research}
+
+\resheading{Academic Projects}
+\input{projects}
+
+\resheading{References}
+\input{references}
+
+%END ASCII
+
+\end{document}

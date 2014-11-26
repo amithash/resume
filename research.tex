@@ -1,0 +1,19 @@
+%START ASCII
+\begin{description}
+\item[OS Scheduling on mutable multicore processors for efficient power utilization:]
+An linux kernel module which plugs into the scheduling and power management system to monitor running applications and utilize processor migration and DVFS (dynamic voltage and frequency scaling) to conserve power while minimizing performance loss at high processor activity.
+\begin{itemize}
+\resitem{Motivation of the research was the observation of ``performance invariability'' of certain applications with respect to varying clock speeds.}
+\resitem{A scheduling algorithm was developed to migrate executing processes to cores running at set clock speeds based on various policies while maintaining demand statistics of the required clock speed thus eventually reducing rapid DVFS transitions.}
+\resitem{A timer based system (running at a much coarser interval compared to the scheduling quanta) was developed to utilize the gathered statistics of the executing applications to transition processors to required DVFS levels while maintain strict rules on the maximum global DVFS transition distance (Measured as the Manhattan distance between two successive layouts).}
+\resitem{The system was shown to achieve a mean power savings of close to 20\% while limiting the performance loss to less than 10\%.}
+\resitem{Thesis submitted entitled ``\textit{Enabling dynamic voltage and frequency scaling in multicore architectures}''.}
+\end{itemize}
+
+\item[Hardware Performance Counter Architecture for Multi-Core Systems:]
+An OS centered architecture to sample performance counters on multiple cores for the AMD Opteron.
+Kernel modules and drivers were written to sample hardware performance counters and allow a daemon interface to dump the profile data.
+
+\end{description}
+
+%END ASCII
