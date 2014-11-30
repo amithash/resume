@@ -124,11 +124,6 @@ sub process
 		if($line =~ /%END ASCII/) {
 			last;
 		}
-		if($line =~ /\\input{(.+)}/) {
-			my $ff = "$1.tex";
-			process($ff);
-			next;
-		}
 		next if($line =~ /%ASCII IGNORE/);
 
 		if($ascii_block == 0 and $line =~ /%ASCII BLOCK BEGIN/) {
@@ -146,39 +141,52 @@ sub process
 			next;
 		}
 
-    # IGNORE COMMENTS
-		next if($line =~ /\s*%/ and $line !~ /\s*\\%/);
+		# IGNORE COMMENTS
+		next if($line =~ /^\s*%/);
 
-    # ADJUST FORMATTING
-    $line =~ s/''/"/g;
-    $line =~ s/\`\`/"/g;
-    $line =~ s/\\%/%/g;
-    $line =~ s/\\\\/\n/g;
-	  if($line =~ /(.*)\\textit{(.+)}(.*)$/) {
+		# Strip comments from the line
+		if($line =~ /^(.+)%/) {
+			if($1 !~ /\\$/) {
+				$line = $1;
+			}
+		}
+
+		# Follow files
+		if($line =~ /\\input{(.+)}/) {
+			my $ff = "$1.tex";
+			process($ff);
+			next;
+		}
+
+		# ADJUST FORMATTING
+		$line =~ s/''/"/g;
+		$line =~ s/\`\`/"/g;
+		$line =~ s/\\%/%/g;
+		$line =~ s/\\\\/\n/g;
+		if($line =~ /(.*)\\textit{(.+)}(.*)$/) {
 			$line = "$1$2$3";
-    }
+		}
 
-    # IGNORE PAGE BREAK
+		# IGNORE PAGE BREAK
 		next if($line =~ /\\pagebreak/);
 
-
-    # IGNORE BLANK LINES
+  		# IGNORE BLANK LINES
 		next if($line =~ /^\s*$/);
 
 
-    # HEADING
+		# HEADING
 		if($line =~ /\\resheading{(.+)}/) {
 			PrintHeading($1);
 			next;
 		}
 
-    # SUB HEADING
+		# SUB HEADING
 		if($line =~ /\\ressubheading{(.+)}{(.+)}{(.+)}{(.+)}/) {
 			PrintSubHeading($1, $2, $3, $4);
 			next;
 		}
 
-    # PARSE ITEMIZE BLOCKS
+		# PARSE ITEMIZE BLOCKS
 		if($itemize == 0 and $line =~ /\\begin{itemize}/) {
 			$itemize = 1;
 			next;
@@ -194,7 +202,7 @@ sub process
 			next;
 		}
 
-    # PARSE DESC BLOCKS
+		# PARSE DESC BLOCKS
 		if($descitem == 0 and $line =~ /\\begin{description}/) {
 			$descitem = 1;
 			next;
@@ -207,17 +215,17 @@ sub process
 			$final_line .= "\n$1\n";
 			next;
 		} elsif($descitem == 1) {
-      $final_line .= "$line\n";
+			$final_line .= "$line\n";
 			next;
 		}
 
 		# Ignore any other commands
 		if($line =~ /\\/) {
-      print STDERR "Ignoring line (Unknown command): \"$line\"\n";
+			print STDERR "Ignoring line (Unknown command): \"$line\"\n";
 			next;
 		}
 
-    # DEFAULT
+		# DEFAULT
 		$final_line .= "$line\n";
 	}
 	close(IN);
