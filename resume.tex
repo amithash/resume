@@ -1,87 +1,78 @@
-% resume.tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Medium Length Professional CV
+% LaTeX Template
+% Version 2.0 (8/5/13)
 %
-% (c) 2002 Matthew Boedicker <mboedick@mboedick.org> (original author) http://mboedick.org
-% (c) 2003 David J. Grant <dgrant@ieee.org> http://www.davidgrant.ca
-% (c) 2007 Todd C. Miller <Todd.Miller@courtesan.com> http://www.courtesan.com/todd
-% (c) 2010 Amithash Prasad <amithash@gmail.com>
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
 %
-%This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/1.0/ or send a letter to Creative Commons, 559 Nathan Abbott Way, Stanford, California 94305, USA.
+% Original author:
+% Trey Hunner (http://www.treyhunner.com/)
+%
+% Important note:
+% This template requires the resume.cls file to be in the same directory as the
+% .tex file. The resume.cls file provides the resume style used for structuring the
+% document.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[letterpaper,8pt]{article}
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
 
-%-----------------------------------------------------------
-\usepackage[empty]{fullpage}
-\usepackage{color}
-\definecolor{mygrey}{gray}{0.80}
-\raggedbottom
-\raggedright
-\setlength{\tabcolsep}{0in}
+\documentclass{resume} % Use the custom resume.cls style
 
-% Adjust margins to 0.5in on all sides
-\addtolength{\oddsidemargin}{-0.5in}
-\addtolength{\evensidemargin}{-0.5in}
-\addtolength{\textwidth}{1.0in}
-\addtolength{\topmargin}{-0.5in}
-\addtolength{\textheight}{1.0in}
-
-%-----------------------------------------------------------
-%Custom commands
-%\newcommand{\resitem}[1]{\item #1 \vspace{-2pt}}
-\newcommand{\resitem}[1]{\item #1 \vspace{-2pt}}
-\newcommand{\resheading}[1]{{\large \colorbox{mygrey}{\begin{minipage}{\textwidth}{\textbf{#1 \vphantom{p\^{E}}}}\end{minipage}}}}
-\newcommand{\ressubheading}[4]{
-\begin{tabular*}{7.0in}{l@{\extracolsep{\fill}}r}
-		\textbf{#1} & #2 \\
-		\textit{#3} & \textit{#4} \\
-\end{tabular*}\vspace{-6pt}}
-%-----------------------------------------------------------
-
-\begin{document}
+\usepackage[left=0.75in,top=0.6in,right=0.75in,bottom=0.6in]{geometry} % Document margins
 
 %START ASCII
 
-\begin{tabular*}{7.5in}{l@{\extracolsep{\fill}}r} %ASCII IGNORE
-\textbf{\huge Amithash Prasad}  & Phone: (720)878-1950\\ %ASCII IGNORE
-2600 S. Rock Creek Pkwy \#28-204 &  Email: amithash@gmail.com\\ %ASCII IGNORE
-Superior, CO 80027 & \\ %ASCII IGNORE
 %ASCII BLOCK BEGIN
 %Amithash Prasad
-%2600 S. Rock Creek Pkwy #28-204 Superior, CO 80027
 %Phone: (720)878-1950
 %ASCII BLOCK END 
-\end{tabular*} %ASCII IGNORE
-\\
-\rule{\linewidth}{0.5mm}
 
-\vspace{0.1in} %ASCII IGNORE 
+\name{Amithash Prasad} % ASCII IGNORE
+%\address{2600 S. Rock creek parkway, Unit 28-204 Superior, CO 80027} % % ASCII IGNORE
+\address{Phone: (720)878-1950} % ASCII IGNORE
+\address{Email: amithash@gmail.com} % ASCII IGNORE
 
-%\resheading{Objective}
-%\\
-%\vspace{0.1in} %ASCII IGNORE
-%\input{objective}
-%\\
-%\vspace{0.1in} %ASCII IGNORE
+\begin{document}
 
-\resheading{Education}
-\input{education}
+%----------------------------------------------------------------------------------------
+%	TECHNICAL STRENGTHS SECTION
+%----------------------------------------------------------------------------------------
 
-
-\resheading{Work Experience}
-\input{experience}
-
-
-\resheading{Skills/Tools}
+\begin{rSection}{Skills}
 \input{skills}
+\end{rSection}
 
-\pagebreak 
-\resheading{Research Projects}
+
+%----------------------------------------------------------------------------------------
+%	WORK EXPERIENCE SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Experience}
+\input{experience}
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Education}
+\input{education}
+\end{rSection}
+
+% Do not overflow to the next page, try to finish here
+\pagebreak
+
+%----------------------------------------------------------------------------------------
+%	PROJECTS SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Academic Projects}
 \input{research}
-
-\resheading{Academic Projects}
-\input{projects}
-
-\resheading{References}
-\input{references}
+\end{rSection}
 
 %END ASCII
 

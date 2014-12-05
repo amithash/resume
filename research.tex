@@ -1,18 +1,26 @@
 %START ASCII
 \begin{description}
-\item[OS Scheduling on mutable multicore processors for efficient power utilization:]
-An linux kernel module which plugs into the scheduling and power management system to monitor running applications and utilize processor migration and DVFS (dynamic voltage and frequency scaling) to conserve power while minimizing performance loss at high processor activity.
+\item[OS Scheduling on mutable multicore processors for efficient power utilization:] An linux kernel module which plugs into the scheduling and power management system to monitor running applications and utilize processor migration and DVFS (dynamic voltage and frequency scaling) to conserve power while minimizing performance loss at high processor activity.
 \begin{itemize}
-\resitem{Motivation of the research was the observation of ``performance invariability'' of certain applications with respect to varying clock speeds.}
-\resitem{A scheduling algorithm was developed to migrate executing processes to cores running at set clock speeds based on various policies while maintaining demand statistics of the required clock speed thus eventually reducing rapid DVFS transitions.}
-\resitem{A timer based system (running at a much coarser interval compared to the scheduling quanta) was developed to utilize the gathered statistics of the executing applications to transition processors to required DVFS levels while maintain strict rules on the maximum global DVFS transition distance (Measured as the Manhattan distance between two successive layouts).}
-\resitem{The system was shown to achieve a mean power savings of close to 20\% while limiting the performance loss to less than 10\%.}
-\resitem{Thesis submitted entitled ``\textit{Enabling dynamic voltage and frequency scaling in multicore architectures}''.}
+\item Motivation of the research was the observation of ``performance invariability'' of certain applications with respect to varying clock speeds.
+\item A scheduling algorithm was developed to migrate executing processes to cores running at set clock speeds based on various policies while maintaining demand statistics of the required clock speed thus eventually reducing rapid DVFS transitions.
+\item A timer based system (running at a much coarser interval compared to the scheduling quanta) was developed to utilize the gathered statistics of the executing applications to transition processors to required DVFS levels while maintain strict rules on the maximum global DVFS transition distance (Measured as the Manhattan distance between two successive layouts).
+\item The system was shown to achieve a mean power savings of close to 20\% while limiting the performance loss to less than 10\%.
+\item Thesis submitted entitled ``\textit{Enabling dynamic voltage and frequency scaling in multicore architectures}''.
 \end{itemize}
 
 \item[Hardware Performance Counter Architecture for Multi-Core Systems:]
 An OS centered architecture to sample performance counters on multiple cores for the AMD Opteron.
 Kernel modules and drivers were written to sample hardware performance counters and allow a daemon interface to dump the profile data.
+
+\item[Thermal Impact of Compiler optimization and Co-Scheduling on a CMP Architecture]
+In-depth statistical study of the thermal profile of applications and their distortion due to compiler optimization and operating system co-scheduling choices on a multicore architecture. A linux kernel module was developed to gather time series data such as temperature, instructions per clock (IPC) etc. for the Intel Xeon processor (Penryn architecture)
+
+\item[Cache Coherence Phase analysis and effects of Process Migration]
+Cache coherence phase state was profiled by sampling the AMD Opteron hardware performance counters, and the effects of process migration was observed for various state transitions. A linux kernel module was developed to aid in the time series data collection.
+
+\item[Spectro]
+A hobby project (Libraries in C, with the user interface is in Qt/C++) investigating music similarity by comparing the spectral content of music. Libraries are created to ease generating the spectrogram of MP3 files to aid their comparision.
 
 \end{description}
 

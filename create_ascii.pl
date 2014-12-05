@@ -179,12 +179,22 @@ sub process
 			PrintHeading($1);
 			next;
 		}
+    if($line =~ /\\begin{rSection}{(.+)}/) {
+      PrintHeading($1);
+      next;
+    }
 
 		# SUB HEADING
-		if($line =~ /\\ressubheading{(.+)}{(.+)}{(.+)}{(.+)}/) {
+		if($line =~ /\\ressubheading{(.*)}{(.*)}{(.*)}{(.*)}/) {
 			PrintSubHeading($1, $2, $3, $4);
 			next;
 		}
+
+    if($line =~ /\\begin{rSubsection}{(.*)}{(.*)}{(.*)}{(.*)}/) {
+      print STDERR "======> SECTION $1\n";
+      PrintSubHeading($1, $2, $3, $4);
+      next;
+    }
 
 		# PARSE ITEMIZE BLOCKS
 		if($itemize == 0 and $line =~ /\\begin{itemize}/) {
@@ -201,6 +211,16 @@ sub process
 			$final_line .= "- $in\n";
 			next;
 		}
+
+    if($line =~ /\\item\[(.+)\]\s+(.+)$/) {
+      $final_line .= "$1 - $2\n";
+      next;
+    }
+
+    if($line =~ /\\item\s+(.+)$/) {
+      $final_line .= "- $1\n";
+      next;
+    }
 
 		# PARSE DESC BLOCKS
 		if($descitem == 0 and $line =~ /\\begin{description}/) {
