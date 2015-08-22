@@ -1,3 +1,3 @@
 %START ASCII
-To work in a professional environment and contribute to the team and company with the best of my engineering, programming and scientific abilities.
+My expertise and passions are in embedded systems, OS, device drivers and computer architecture with more than 8 years experience. My core strengths are in debugging and rapid on-boarding new platforms.
 %END ASCII
