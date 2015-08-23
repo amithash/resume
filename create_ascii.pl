@@ -163,6 +163,7 @@ sub process
 		$line =~ s/\`\`/"/g;
 		$line =~ s/\\%/%/g;
 		$line =~ s/\\\\/\n/g;
+		$line =~ s/\\hfill/, /g;
 		if($line =~ /(.*)\\textit{(.+)}(.*)$/) {
 			$line = "$1$2$3";
 		}
