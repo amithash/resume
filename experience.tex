@@ -1,21 +1,27 @@
 %START ASCII
 \begin{rSubsection}{Qualcomm Technologies, Inc.}{Jan 2009 - Present}{Sr. Engineer}{}
-  \item Lead a team of 3 for developing inter-processor communication technologies for Qualcomm chipsets.
-  \item Domain expert for Qualcomm Messaging Interface, a proprietary structured messaging interface used in all Qualcomm chipsets.
-  \item Core OS team member working on multi-processor communication modules for all supported operating systems (Linux, L4, QNX and QuRT (Qualcomm proprietary RTOS)).
-  \item Designed and developed an inter-processor communication routing protocol for the embedded system supporting dynamic routing, name service, unicast and multicast messaging. Implementation was abstracted to allow for transport plugins and currently supports HSIC (USB), PCIE and shared memory.
-  \item Designed and developed Qualcomm Message Bus, a module providing multicast publish/subscribe interface for device drivers within the Qualcomm SoC. 
-  \item Continually develop and improve performance and memory footprint of Qualcomm messaging interface for control messaging between processors within an SoC.
-  \item Designed and Implemented a system health monitor to detect unresponsive peripherals within an SoC to improve user experience.
+  \item[] Technology lead for the inter-processor communication stack encompassing all layers from session to link layer used for messaging within the Qualcomm Snapdragon SoC and all supported operating systems (Linux, QNX, L4 \& QuRT - A Qualcomm proprietary RTOS).
+  \item[]
+  \item[] \textbf{Accomplishments}
+  \begin{itemize}
+    \item Designed and developed an inter-processor communication routing protocol for the embedded system supporting dynamic routing, name service, unicast and multicast messaging. The module currently supports USB, PCIE \& shared memory.
+    \begin{itemize}
+      \item[--] Improved the throughput of the routing protocol over PCIE by a factor of 200\%.
+      \item[--] Reduced code size by a factor of 50\% to enable support of devices with lower capabilities.
+      \item[--] Developed a socket interface to facilitate easy adoption.
+    \end{itemize}
+    \item Implemented a client/server interface (providing the presentation and session layers of the OSI stack) allowing users to exchange structured messages seamlessly within a heterogeneous environment such as the Snapdragon SoC. This was later extended to support one to many (multicast) messaging.
+    \item Key developer of a generic link layer protocol capable of adapting to a multitude of physical transports from wired to zero-copy.
+  \end{itemize}
 \end{rSubsection}
 
 %------------------------------------------------
 
 \begin{rSubsection}{VMware, Inc.}{May 2008 - Aug 2008}{Kernel Intern}{}
-  \item Worked in the ESX server sustenance team as a summer intern.
-  \item Investigated nested virtual machine creation and their uses in test infrastructure and automation.
-  \item Investigated core dump creation for the guest in runaway and locked up virtual machines.
-  \item Created test linux kernel modules to crash the system (null pointer reference, null function reference etc.) and hence test the above developed feature.
+%  \begin{itemize}
+  \item[] Investigated nested virtual machine creation and their uses in test infrastructure and automation.
+  \item[] Developed a mechanism to create a core dump of the guest VM in runaway and locked up virtual machines.
+%  \end{itemize}
 \end{rSubsection}
 
 %------------------------------------------------
