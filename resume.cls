@@ -25,6 +25,9 @@
 \usepackage[parfill]{parskip} % Remove paragraph indentation
 \usepackage{array} % Required for boldface (\bf and \bfseries) tabular columns
 \usepackage{ifthen} % Required for ifthenelse statements
+\usepackage{color} % required for colored output
+
+\definecolor{RoyalBlue}{cmyk}{1, 0.50, 0, 0}
 
 \pagestyle{empty} % Suppress page numbers
 
@@ -96,9 +99,11 @@
 % Defines the rSection environment for the large sections within the CV
 \newenvironment{rSection}[1]{ % 1 input argument - section name
   \sectionskip
+  \color{RoyalBlue}
   \MakeUppercase{\bf #1} % Section title
   \sectionlineskip
   \hrule % Horizontal line
+  \color{black}
   \begin{list}{}{ % List for each individual item in the section
     \setlength{\leftmargin}{1.5em} % Margin within the section
   }
