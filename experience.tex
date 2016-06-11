@@ -13,11 +13,12 @@
     \item Implemented a client/server interface (providing the presentation and session layers of the OSI stack) allowing users to exchange structured messages seamlessly within a heterogeneous environment such as the Snapdragon SoC. This was later extended to support one to many (multicast) messaging.
     \item Key developer of a generic link layer protocol capable of adapting to a multitude of physical transports from wired to zero-copy.
     \begin{itemize}
-     \item Developed transport plugins for SPI, UART, SMEM.
-     \item Worked with the audio team in improving the worst case IPC latency by a factor of 4 to improve audio control latencies on Linux.
-     \item Migrate the framework to the QNX platform and rapidly deliver for the automative effort.
+     \item Developed transport plugins for SPI, UART \& SMEM.
+     \item Worked with the audio team in improving the worst case IPC latency by a factor of 4 on Linux.
+     \item Ported all drivers to the QNX (Auto), freeRTOS \& ThreadX platforms and successfully delivered on an agressive deadline
     \end{itemize}
-    \item Work closely with application and hardware teams from design to final implementation. Key accomplishments being the creation of a unified sensor messaging platform, reduce platform dependence in the radio interface layer, audio control messaging for codec download.
+    \item Work closely with application and hardware teams from design to final implementation. Key accomplishments being the creation of a unified sensor messaging platform, reduce platform dependence in the radio interface layer.
+    \item Developed a multi-processor simulation platform to test IPC device drivers off-target enabling continuous integration testing which allowed for the rapid development and testing of features, bug-fixes and eventually drive product quality.
   \end{itemize}
 \end{rSubsection}
 
