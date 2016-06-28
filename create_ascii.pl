@@ -162,9 +162,14 @@ sub process
 		$line =~ s/''/"/g;
 		$line =~ s/\`\`/"/g;
 		$line =~ s/\\%/%/g;
+    $line =~ s/\s+&\s+/: /g;
+    $line =~ s/\\&/&/g;
 		$line =~ s/\\\\/\n/g;
 		$line =~ s/\\hfill/, /g;
 		if($line =~ /(.*)\\textit{(.+)}(.*)$/) {
+			$line = "$1$2$3";
+		}
+		if($line =~ /(.*)\\textbf{(.+)}(.*)$/) {
 			$line = "$1$2$3";
 		}
 
@@ -215,6 +220,11 @@ sub process
 
     if($line =~ /\\item\[(.+)\]\s+(.+)$/) {
       $final_line .= "$1 - $2\n";
+      next;
+    }
+
+    if($line =~ /\\item\[\]\s+(.+)$/) {
+      $final_line .= "$1\n";
       next;
     }
 
