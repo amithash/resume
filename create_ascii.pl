@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use Getopt::Long;
 
-my $line_length = 80;
+my $line_length = 100000000;
 my $help = 0;
 GetOptions(
   'l|length=i' => \$line_length,
